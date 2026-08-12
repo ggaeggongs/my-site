@@ -4,347 +4,13 @@
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width, initial-scale=1" />
 <title>푸른홀딩스 | PUREUN HOLDINGS</title>
-<meta name="description" content="푸른홀딩스는 푸른저축은행, 푸른파트너스자산운용, 푸른인베스트먼트를 아우르는 금융 지주회사입니다. 신뢰받는 금융의 내일을 설계합니다." />
+<meta name="description" content="푸른홀딩스는 푸른저축은행·푸른파트너스자산운용·푸른인베스트먼트를 아우르는 금융지주회사입니다. 신뢰받는 금융의 내일을 설계합니다." />
 
-<!-- 웹폰트: 한글(Noto Sans KR) + 영문(Inter). 설치 없이 인터넷에서 불러옵니다. -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
 <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Noto+Sans+KR:wght@400;500;700;900&display=swap" rel="stylesheet" />
-
-<style>
-/* =========================================================
-   푸른홀딩스 디자인 시스템 (스타벅스 그린 스타일 기반)
-   - 순수 HTML/CSS/JS, 설치·빌드 불필요
-   ========================================================= */
-
-/* ---------- 색상/간격 토큰 ---------- */
-:root{
-  /* 그린 4단계 브랜드 시스템 */
-  --green-brand:  #006241;  /* 대표 그린 - 제목 */
-  --green-accent: #00754A;  /* 밝은 그린 - 버튼(CTA) */
-  --green-house:  #1E3932;  /* 짙은 그린 - 강조 밴드/푸터 */
-  --green-uplift: #2b5148;  /* 보조 짙은 그린 - 장식 */
-  --green-light:  #d4e9e2;  /* 연한 민트 - 배경 틴트 */
-
-  /* 골드(프리미엄 강조 - 아주 절제해서 사용) */
-  --gold:        #cba258;
-  --gold-lightest:#faf6ee;
-
-  /* 표면/캔버스 */
-  --white:      #ffffff;
-  --canvas:     #f2f0eb;  /* 따뜻한 크림 - 기본 페이지 바탕 */
-  --ceramic:    #edebe9;  /* 살짝 진한 크림 - 구역 구분 */
-
-  /* 텍스트 */
-  --ink:        rgba(0,0,0,0.87);   /* 본문/제목 (순검정 아님) */
-  --ink-soft:   rgba(0,0,0,0.58);   /* 보조 텍스트 */
-  --on-dark:        rgba(255,255,255,1);
-  --on-dark-soft:   rgba(255,255,255,0.70);
-
-  /* 간격(rem) */
-  --space-3: 1.6rem;
-  --space-4: 2.4rem;
-  --space-5: 3.2rem;
-  --space-6: 4rem;
-  --space-7: 4.8rem;
-  --space-9: 6.4rem;
-
-  /* 모양 */
-  --radius-card: 12px;
-  --radius-pill: 50px;
-  --shadow-card: 0 0 .5px rgba(0,0,0,.14), 0 1px 1px rgba(0,0,0,.24);
-  --shadow-nav:  0 1px 3px rgba(0,0,0,.1), 0 2px 2px rgba(0,0,0,.06), 0 0 2px rgba(0,0,0,.07);
-  --shadow-float:0 0 6px rgba(0,0,0,.24), 0 8px 12px rgba(0,0,0,.14);
-
-  --maxw: 1200px;
-}
-
-/* ---------- 기본 초기화 ---------- */
-*{ box-sizing:border-box; margin:0; padding:0; }
-html{ scroll-behavior:smooth; }
-body{
-  font-family:"Noto Sans KR","Inter","Helvetica Neue",Arial,sans-serif;
-  background:var(--canvas);
-  color:var(--ink);
-  line-height:1.6;
-  letter-spacing:-0.01em;
-  -webkit-font-smoothing:antialiased;
-}
-img{ max-width:100%; display:block; }
-a{ color:inherit; text-decoration:none; }
-section{ scroll-margin-top:100px; }
-
-.wrap{ max-width:var(--maxw); margin:0 auto; padding:0 24px; }
-
-/* ---------- 버튼(모두 50px 알약 모양 + 누를 때 살짝 축소) ---------- */
-.btn{
-  display:inline-flex; align-items:center; justify-content:center; gap:8px;
-  font-family:inherit; font-weight:700; font-size:15px; letter-spacing:-0.01em;
-  border-radius:var(--radius-pill);
-  padding:12px 26px; cursor:pointer;
-  transition:all .2s ease; border:1px solid transparent; white-space:nowrap;
-}
-.btn:active{ transform:scale(0.95); }
-.btn-primary{ background:var(--green-accent); color:#fff; border-color:var(--green-accent); }
-.btn-primary:hover{ background:#00623d; }
-.btn-outline{ background:transparent; color:var(--green-accent); border-color:var(--green-accent); }
-.btn-outline:hover{ background:rgba(0,117,74,.06); }
-.btn-dark{ background:#000; color:#fff; border-color:#000; font-size:14px; padding:10px 22px; }
-.btn-dark:hover{ background:#1a1a1a; }
-/* 짙은 배경 위 버튼 */
-.btn-on-dark-fill{ background:#fff; color:var(--green-accent); border-color:#fff; }
-.btn-on-dark-fill:hover{ background:#f0f0f0; }
-.btn-on-dark-line{ background:transparent; color:#fff; border-color:#fff; }
-.btn-on-dark-line:hover{ background:rgba(255,255,255,.12); }
-
-/* =========================================================
-   상단 고정 내비게이션
-   ========================================================= */
-.topbar{ background:#000; color:#fff; }
-.topbar .wrap{ display:flex; justify-content:flex-end; align-items:center; gap:18px; height:40px; font-size:12.5px; }
-.topbar a{ color:rgba(255,255,255,.85); }
-.topbar a:hover{ color:#fff; }
-.topbar .dot{ color:rgba(255,255,255,.35); }
-
-.nav{
-  position:sticky; top:0; z-index:100;
-  background:rgba(242,240,235,.92); backdrop-filter:blur(8px);
-  transition:box-shadow .25s ease, background .25s ease;
-}
-.nav.scrolled{ box-shadow:var(--shadow-nav); background:rgba(242,240,235,.97); }
-.nav .wrap{ display:flex; align-items:center; height:76px; gap:32px; }
-
-.brand{ display:flex; align-items:center; gap:10px; font-weight:900; }
-.brand .mark{ width:34px; height:34px; border-radius:9px; background:var(--green-brand);
-  display:grid; place-items:center; color:#fff; font-size:18px; font-weight:900; }
-.brand .name{ font-size:20px; color:var(--green-brand); letter-spacing:-0.02em; line-height:1; }
-.brand .name small{ display:block; font-size:9.5px; letter-spacing:.22em; color:var(--ink-soft);
-  font-weight:600; margin-top:3px; font-family:"Inter",sans-serif; }
-
-.nav-links{ display:flex; gap:28px; margin-left:8px; }
-.nav-links a{ font-size:15px; font-weight:500; color:var(--ink); padding:6px 0; position:relative; }
-.nav-links a:hover{ color:var(--green-brand); }
-.nav-links a::after{ content:""; position:absolute; left:0; bottom:-2px; height:2px; width:0;
-  background:var(--green-accent); transition:width .25s ease; }
-.nav-links a:hover::after{ width:100%; }
-
-.nav-cta{ margin-left:auto; display:flex; align-items:center; gap:12px; }
-
-/* 모바일 햄버거 */
-.hamburger{ display:none; margin-left:auto; width:44px; height:44px; border:none; background:transparent;
-  cursor:pointer; flex-direction:column; justify-content:center; gap:5px; }
-.hamburger span{ display:block; width:24px; height:2px; background:var(--ink); margin:0 auto; transition:.25s; }
-.hamburger.open span:nth-child(1){ transform:translateY(7px) rotate(45deg); }
-.hamburger.open span:nth-child(2){ opacity:0; }
-.hamburger.open span:nth-child(3){ transform:translateY(-7px) rotate(-45deg); }
-
-/* =========================================================
-   히어로
-   ========================================================= */
-.hero{ position:relative; overflow:hidden; }
-.hero .wrap{ display:grid; grid-template-columns:1.05fr .95fr; gap:48px; align-items:center;
-  padding-top:var(--space-9); padding-bottom:var(--space-9); }
-.hero .eyebrow{ display:inline-flex; align-items:center; gap:8px; font-size:13px; font-weight:700;
-  letter-spacing:.04em; color:var(--green-brand); background:var(--green-light);
-  padding:7px 14px; border-radius:var(--radius-pill); margin-bottom:22px; }
-.hero h1{ font-size:clamp(34px,5vw,58px); line-height:1.18; letter-spacing:-0.03em; font-weight:900;
-  color:var(--green-brand); margin-bottom:22px; }
-.hero h1 .em{ color:var(--green-accent); }
-.hero p.lead{ font-size:19px; line-height:1.75; color:var(--ink); max-width:520px; margin-bottom:34px; }
-.hero .actions{ display:flex; gap:14px; flex-wrap:wrap; }
-
-/* 히어로 오른쪽 비주얼(카드형 그래픽) */
-.hero-visual{ position:relative; height:420px; }
-.hero-card{ position:absolute; border-radius:20px; box-shadow:0 18px 40px rgba(0,0,0,.14);
-  padding:22px 24px; background:#fff; }
-.hero-card.big{ inset:0 40px 80px 0; background:var(--green-house); color:#fff;
-  display:flex; flex-direction:column; justify-content:space-between; }
-.hero-card.big .label{ font-size:13px; letter-spacing:.15em; color:var(--on-dark-soft); font-weight:700; }
-.hero-card.big .num{ font-size:46px; font-weight:900; letter-spacing:-0.02em; line-height:1.1; }
-.hero-card.big .num span{ font-size:20px; color:var(--gold); }
-.hero-card.big .desc{ font-size:14px; color:var(--on-dark-soft); }
-.hero-card.small{ right:0; bottom:0; width:230px; background:#fff; }
-.hero-card.small .k{ font-size:12.5px; color:var(--ink-soft); font-weight:700; }
-.hero-card.small .v{ font-size:26px; font-weight:900; color:var(--green-brand); letter-spacing:-0.02em; }
-.hero-card.small .v small{ font-size:14px; color:var(--green-accent); }
-.hero-badge{ position:absolute; top:14px; right:8px; width:64px; height:64px; border-radius:50%;
-  background:var(--gold); color:#fff; display:grid; place-items:center; font-weight:900; font-size:12px;
-  text-align:center; line-height:1.2; box-shadow:0 8px 18px rgba(203,162,88,.4); }
-
-/* =========================================================
-   지표 밴드
-   ========================================================= */
-.stats{ background:var(--white); border-top:1px solid var(--ceramic); border-bottom:1px solid var(--ceramic); }
-.stats .wrap{ display:grid; grid-template-columns:repeat(4,1fr); gap:24px; padding:var(--space-6) 24px; }
-.stat{ text-align:center; padding:8px; }
-.stat .n{ font-size:38px; font-weight:900; color:var(--green-brand); letter-spacing:-0.02em; line-height:1; }
-.stat .n small{ font-size:18px; color:var(--green-accent); }
-.stat .t{ font-size:14px; color:var(--ink-soft); margin-top:10px; font-weight:500; }
-.stat + .stat{ border-left:1px solid var(--ceramic); }
-
-/* =========================================================
-   섹션 공통
-   ========================================================= */
-.section{ padding:var(--space-9) 0; }
-.section.tint{ background:var(--white); }
-.section-head{ max-width:720px; margin:0 auto var(--space-7); text-align:center; }
-.section-head .kicker{ font-size:14px; font-weight:700; letter-spacing:.14em; color:var(--green-accent);
-  text-transform:uppercase; margin-bottom:14px; }
-.section-head h2{ font-size:clamp(26px,3.4vw,38px); line-height:1.25; letter-spacing:-0.02em;
-  font-weight:900; color:var(--ink); margin-bottom:16px; }
-.section-head p{ font-size:17px; color:var(--ink-soft); line-height:1.75; }
-
-/* 핵심가치 3열 */
-.values{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
-.value-card{ background:var(--white); border-radius:var(--radius-card); box-shadow:var(--shadow-card);
-  padding:34px 30px; transition:transform .25s ease, box-shadow .25s ease; }
-.value-card:hover{ transform:translateY(-4px); box-shadow:0 12px 26px rgba(0,0,0,.1); }
-.value-card .ic{ width:52px; height:52px; border-radius:14px; background:var(--green-light);
-  display:grid; place-items:center; margin-bottom:20px; font-size:24px; }
-.value-card h3{ font-size:20px; font-weight:700; color:var(--green-brand); margin-bottom:10px; letter-spacing:-0.01em; }
-.value-card p{ font-size:15px; color:var(--ink-soft); line-height:1.7; }
-
-/* =========================================================
-   계열사 카드
-   ========================================================= */
-.affiliates{ display:grid; grid-template-columns:repeat(3,1fr); gap:26px; }
-.aff{ background:var(--white); border-radius:var(--radius-card); box-shadow:var(--shadow-card);
-  overflow:hidden; display:flex; flex-direction:column; transition:transform .25s ease, box-shadow .25s ease; }
-.aff:hover{ transform:translateY(-6px); box-shadow:0 16px 34px rgba(0,0,0,.12); }
-.aff .top{ padding:28px 28px 22px; color:#fff; position:relative; }
-.aff .top.bank{ background:linear-gradient(135deg,var(--green-brand),var(--green-house)); }
-.aff .top.asset{ background:linear-gradient(135deg,var(--green-accent),var(--green-uplift)); }
-.aff .top.vc{ background:linear-gradient(135deg,var(--green-uplift),var(--green-house)); }
-.aff .top .tag{ font-size:12px; font-weight:700; letter-spacing:.12em; color:var(--on-dark-soft); }
-.aff .top h3{ font-size:23px; font-weight:900; margin-top:8px; letter-spacing:-0.02em; }
-.aff .top .en{ font-size:12px; letter-spacing:.16em; color:var(--on-dark-soft); margin-top:6px;
-  font-family:"Inter",sans-serif; font-weight:600; text-transform:uppercase; }
-.aff .body{ padding:24px 28px 28px; display:flex; flex-direction:column; flex:1; }
-.aff .body > p{ font-size:15px; color:var(--ink); line-height:1.7; margin-bottom:18px; }
-.aff .facts{ list-style:none; margin-bottom:22px; }
-.aff .facts li{ display:flex; gap:10px; font-size:14px; color:var(--ink-soft); padding:6px 0;
-  border-bottom:1px solid var(--ceramic); }
-.aff .facts li:last-child{ border-bottom:none; }
-.aff .facts li b{ color:var(--green-brand); font-weight:700; margin-left:auto; text-align:right; }
-.aff .facts .k{ color:var(--ink-soft); }
-.aff .body .btn{ margin-top:auto; width:100%; }
-
-/* =========================================================
-   짙은 그린 강조 밴드 (경영철학)
-   ========================================================= */
-.band{ background:var(--green-house); color:#fff; }
-.band .wrap{ display:grid; grid-template-columns:1fr 1fr; gap:56px; align-items:center;
-  padding:var(--space-9) 24px; }
-.band .kicker{ font-size:14px; font-weight:700; letter-spacing:.14em; color:var(--gold);
-  text-transform:uppercase; margin-bottom:18px; }
-.band h2{ font-size:clamp(26px,3.2vw,36px); line-height:1.3; letter-spacing:-0.02em; font-weight:900;
-  margin-bottom:22px; }
-.band p{ font-size:17px; color:var(--on-dark-soft); line-height:1.85; margin-bottom:16px; }
-.band .actions{ display:flex; gap:14px; margin-top:12px; flex-wrap:wrap; }
-.band-quote{ background:var(--green-uplift); border-radius:18px; padding:40px 38px;
-  border:1px solid rgba(255,255,255,.08); }
-.band-quote .mark{ font-size:56px; line-height:.6; color:var(--gold); font-family:Georgia,serif; }
-.band-quote blockquote{ font-size:21px; line-height:1.6; font-weight:500; margin:14px 0 22px; letter-spacing:-0.01em; }
-.band-quote .who{ font-size:14px; color:var(--on-dark-soft); }
-.band-quote .who b{ color:#fff; font-weight:700; }
-
-/* =========================================================
-   문의 섹션
-   ========================================================= */
-.contact .wrap{ display:grid; grid-template-columns:.9fr 1.1fr; gap:48px; align-items:start; }
-.contact-info h2{ font-size:clamp(26px,3.2vw,34px); font-weight:900; color:var(--ink);
-  letter-spacing:-0.02em; margin-bottom:16px; }
-.contact-info p{ color:var(--ink-soft); font-size:16px; line-height:1.75; margin-bottom:26px; }
-.contact-info .row{ display:flex; gap:14px; align-items:center; padding:14px 0; border-top:1px solid var(--ceramic); }
-.contact-info .row .ic{ width:42px; height:42px; border-radius:12px; background:var(--green-light);
-  display:grid; place-items:center; font-size:19px; flex-shrink:0; }
-.contact-info .row .k{ font-size:12.5px; color:var(--ink-soft); font-weight:700; letter-spacing:.05em; }
-.contact-info .row .v{ font-size:16px; color:var(--ink); font-weight:500; }
-
-.form-card{ background:var(--white); border-radius:var(--radius-card); box-shadow:var(--shadow-card);
-  padding:34px 32px; }
-.form-row{ display:grid; grid-template-columns:1fr 1fr; gap:16px; }
-.field{ margin-bottom:18px; }
-.field label{ display:block; font-size:13px; font-weight:700; color:var(--ink); margin-bottom:8px;
-  letter-spacing:.02em; }
-.field input, .field select, .field textarea{
-  width:100%; font-family:inherit; font-size:15px; color:var(--ink);
-  padding:13px 14px; border:1px solid #d6dbde; border-radius:8px; background:#fff; transition:border .2s ease; }
-.field textarea{ resize:vertical; min-height:120px; }
-.field input:focus, .field select:focus, .field textarea:focus{
-  outline:none; border-color:var(--green-accent); box-shadow:0 0 0 3px rgba(0,117,74,.1); }
-.form-note{ font-size:12.5px; color:var(--ink-soft); margin-top:6px; }
-.form-msg{ display:none; margin-top:16px; padding:14px 16px; border-radius:10px;
-  background:var(--green-light); color:var(--green-brand); font-size:14px; font-weight:500; }
-.form-msg.show{ display:block; }
-
-/* =========================================================
-   푸터
-   ========================================================= */
-.footer{ background:var(--green-house); color:var(--on-dark-soft); padding:var(--space-9) 0 var(--space-5); }
-.footer .grid{ display:grid; grid-template-columns:1.4fr 1fr 1fr 1fr; gap:36px; margin-bottom:var(--space-6); }
-.footer .brand .name{ color:#fff; }
-.footer .brand .mark{ background:var(--gold); }
-.footer .about{ margin-top:18px; font-size:14px; line-height:1.8; color:var(--on-dark-soft); max-width:300px; }
-.footer h4{ color:#fff; font-size:14px; font-weight:700; letter-spacing:.05em; margin-bottom:16px; }
-.footer ul{ list-style:none; }
-.footer ul li{ margin-bottom:11px; }
-.footer ul a{ font-size:14px; color:var(--on-dark-soft); transition:color .2s ease; }
-.footer ul a:hover{ color:var(--gold); }
-.footer .bottom{ border-top:1px solid rgba(255,255,255,.12); padding-top:26px;
-  display:flex; justify-content:space-between; align-items:center; gap:16px; flex-wrap:wrap; }
-.footer .bottom small{ font-size:12.5px; color:rgba(255,255,255,.5); line-height:1.7; }
-.footer .disclaimer{ font-size:11.5px; color:rgba(255,255,255,.4); margin-top:14px; line-height:1.7; max-width:900px; }
-
-/* =========================================================
-   플로팅 문의 버튼 (스타벅스 Frap 스타일)
-   ========================================================= */
-.float-cta{ position:fixed; right:24px; bottom:24px; z-index:90;
-  width:60px; height:60px; border-radius:50%; background:var(--green-accent); color:#fff;
-  display:grid; place-items:center; box-shadow:var(--shadow-float); border:none; cursor:pointer;
-  transition:transform .2s ease; }
-.float-cta:hover{ transform:translateY(-2px); }
-.float-cta:active{ transform:scale(0.95); }
-.float-cta svg{ width:26px; height:26px; }
-
-/* =========================================================
-   스크롤 등장 애니메이션
-   ========================================================= */
-.reveal{ opacity:0; transform:translateY(24px); transition:opacity .7s ease, transform .7s ease; }
-.reveal.in{ opacity:1; transform:none; }
-
-/* =========================================================
-   반응형
-   ========================================================= */
-@media (max-width:960px){
-  .hero .wrap{ grid-template-columns:1fr; gap:36px; }
-  .hero-visual{ height:340px; }
-  .band .wrap{ grid-template-columns:1fr; gap:32px; }
-  .contact .wrap{ grid-template-columns:1fr; gap:32px; }
-  .stats .wrap{ grid-template-columns:repeat(2,1fr); }
-  .stat:nth-child(3){ border-left:none; }
-  .footer .grid{ grid-template-columns:1fr 1fr; }
-}
-@media (max-width:760px){
-  .nav-links, .nav-cta > .btn-dark{ display:none; }
-  .hamburger{ display:flex; }
-  .nav .wrap{ gap:12px; }
-  /* 모바일 드로어 메뉴 */
-  .mobile-menu{ display:none; position:sticky; top:76px; z-index:99; background:var(--white);
-    box-shadow:var(--shadow-nav); padding:12px 24px 20px; }
-  .mobile-menu.open{ display:block; }
-  .mobile-menu a{ display:block; padding:14px 4px; font-size:16px; font-weight:500;
-    border-bottom:1px solid var(--ceramic); color:var(--ink); }
-  .mobile-menu .btn{ width:100%; margin-top:16px; }
-  .values, .affiliates{ grid-template-columns:1fr; }
-}
-@media (min-width:761px){ .mobile-menu{ display:none !important; } }
-@media (max-width:520px){
-  .stats .wrap{ grid-template-columns:1fr 1fr; }
-  .form-row{ grid-template-columns:1fr; }
-  .hero-card.small{ width:180px; }
-}
-</style>
+<link rel="stylesheet" href="assets/styles.css" />
+<script>document.documentElement.classList.add("js");</script>
 </head>
 
 <body>
@@ -352,79 +18,115 @@ section{ scroll-margin-top:100px; }
 <!-- ===================== 상단 유틸 바 ===================== -->
 <div class="topbar">
   <div class="wrap">
-    <a href="#affiliates">계열사 바로가기</a><span class="dot">·</span>
-    <a href="#contact">고객문의</a><span class="dot">·</span>
-    <a href="#" onclick="return false;">인재채용</a>
+    <a href="affiliates.html">계열사 바로가기</a><span class="dot">·</span>
+    <a href="contact.html">고객문의</a><span class="dot">·</span>
+    <a href="contact.html#recruit">인재채용</a>
   </div>
 </div>
 
 <!-- ===================== 내비게이션 ===================== -->
 <header class="nav" id="nav">
   <div class="wrap">
-    <a class="brand" href="#top">
+    <a class="brand" href="index.html">
       <span class="mark">푸</span>
       <span class="name">푸른홀딩스<small>PUREUN HOLDINGS</small></span>
     </a>
     <nav class="nav-links">
-      <a href="#about">그룹소개</a>
-      <a href="#values">경영철학</a>
-      <a href="#affiliates">계열사</a>
-      <a href="#vision">비전</a>
-      <a href="#contact">문의</a>
+      <div class="nav-item">
+        <a href="about.html">홀딩스 소개</a>
+        <div class="dropdown">
+          <a href="about.html#ceo">CEO 인사말</a>
+          <a href="about.html#overview">그룹 개요</a>
+          <a href="about.html#values">핵심가치</a>
+          <a href="about.html#governance">지배구조</a>
+          <a href="about.html#history">연혁</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="affiliates.html">계열사</a>
+        <div class="dropdown">
+          <a href="affiliates.html#bank">푸른저축은행</a>
+          <a href="affiliates.html#am">푸른파트너스자산운용</a>
+          <a href="affiliates.html#vc">푸른인베스트먼트</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="ir.html">IR</a>
+        <div class="dropdown">
+          <a href="ir.html#financials">재무현황</a>
+          <a href="ir.html#funds">운용실적</a>
+          <a href="ir.html#disclosure">공시정보</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="pr.html">홍보센터</a>
+        <div class="dropdown">
+          <a href="pr.html#growth">성장 스토리</a>
+          <a href="pr.html#news">보도자료</a>
+          <a href="pr.html#ci">CI 소개</a>
+        </div>
+      </div>
+      <div class="nav-item">
+        <a href="esg.html">ESG</a>
+        <div class="dropdown">
+          <a href="esg.html#esg">ESG 경영</a>
+          <a href="esg.html#ethics">윤리경영</a>
+        </div>
+      </div>
     </nav>
     <div class="nav-cta">
-      <a class="btn btn-dark" href="#contact">상담 신청</a>
-      <button class="hamburger" id="hamburger" aria-label="메뉴 열기">
-        <span></span><span></span><span></span>
-      </button>
+      <a class="btn btn-dark" href="contact.html">상담 신청</a>
+      <button class="hamburger" id="hamburger" aria-label="메뉴 열기"><span></span><span></span><span></span></button>
     </div>
   </div>
 </header>
 
 <!-- 모바일 메뉴 -->
 <div class="mobile-menu" id="mobileMenu">
-  <a href="#about">그룹소개</a>
-  <a href="#values">경영철학</a>
-  <a href="#affiliates">계열사</a>
-  <a href="#vision">비전</a>
-  <a href="#contact">문의</a>
-  <a class="btn btn-primary" href="#contact">상담 신청</a>
+  <div class="m-group"><a href="about.html">홀딩스 소개</a>
+    <div class="m-sub"><a href="about.html#ceo">CEO 인사말</a><a href="about.html#overview">그룹 개요</a><a href="about.html#governance">지배구조</a><a href="about.html#history">연혁</a></div>
+  </div>
+  <div class="m-group"><a href="affiliates.html">계열사</a>
+    <div class="m-sub"><a href="affiliates.html#bank">푸른저축은행</a><a href="affiliates.html#am">푸른파트너스자산운용</a><a href="affiliates.html#vc">푸른인베스트먼트</a></div>
+  </div>
+  <div class="m-group"><a href="ir.html">IR</a>
+    <div class="m-sub"><a href="ir.html#financials">재무현황</a><a href="ir.html#funds">운용실적</a></div>
+  </div>
+  <div class="m-group"><a href="pr.html">홍보센터</a></div>
+  <div class="m-group"><a href="esg.html">ESG</a></div>
+  <div class="m-group"><a href="contact.html">문의</a></div>
+  <a class="btn btn-primary" href="contact.html">상담 신청</a>
 </div>
 
-<span id="top"></span>
-
 <!-- ===================== 히어로 ===================== -->
-<section class="hero">
-  <div class="wrap">
+<section class="hero" style="position:relative;overflow:hidden;">
+  <div class="wrap" style="display:grid;grid-template-columns:1.05fr .95fr;gap:48px;align-items:center;padding:var(--space-9) 24px;">
     <div class="reveal">
-      <span class="eyebrow">● 금융 지주회사 · Financial Holdings</span>
-      <h1>신뢰받는 금융의 내일,<br><span class="em">푸른</span>이 함께 설계합니다.</h1>
-      <p class="lead">
-        푸른홀딩스는 <b>저축은행 · 자산운용 · 벤처투자</b>를 아우르는 금융 지주회사입니다.
+      <span style="display:inline-flex;align-items:center;gap:8px;font-size:13px;font-weight:700;letter-spacing:.04em;color:var(--green-brand);background:var(--green-light);padding:7px 14px;border-radius:var(--radius-pill);margin-bottom:22px;">● 금융지주회사 · Financial Holdings</span>
+      <h1 style="font-size:clamp(34px,5vw,56px);line-height:1.18;letter-spacing:-0.03em;font-weight:900;color:var(--navy);margin-bottom:22px;">신뢰받는 금융의 내일,<br><span style="color:var(--green-accent);">푸른</span>이 함께 설계합니다.</h1>
+      <p style="font-size:19px;line-height:1.75;color:var(--ink);max-width:520px;margin-bottom:34px;">
+        푸른홀딩스는 <b>저축은행 · 자산운용 · 벤처투자</b>를 아우르는 금융지주회사입니다.
         반세기 넘게 쌓아온 신뢰 위에, 다음 세대의 자산을 함께 키워갑니다.
       </p>
-      <div class="actions">
-        <a class="btn btn-primary" href="#affiliates">계열사 살펴보기</a>
-        <a class="btn btn-outline" href="#about">그룹 소개</a>
+      <div style="display:flex;gap:14px;flex-wrap:wrap;">
+        <a class="btn btn-primary" href="affiliates.html">계열사 살펴보기</a>
+        <a class="btn btn-outline" href="about.html">그룹 소개</a>
       </div>
     </div>
 
-    <!-- 오른쪽 비주얼 -->
-    <div class="hero-visual reveal">
-      <div class="hero-card big">
+    <div class="reveal" style="position:relative;height:420px;">
+      <div style="position:absolute;inset:0 40px 80px 0;background:linear-gradient(135deg,var(--navy),var(--green-house));border-radius:20px;box-shadow:0 18px 40px rgba(15,32,56,.2);padding:26px 28px;color:#fff;display:flex;flex-direction:column;justify-content:space-between;">
+        <div style="font-size:13px;letter-spacing:.15em;color:var(--on-dark-soft);font-weight:700;">GROUP FINANCIAL ASSETS · 금융부문 자산총계</div>
         <div>
-          <div class="label">GROUP AUM · 그룹 운용/총자산</div>
-        </div>
-        <div>
-          <div class="num">2.4조<span> 원+</span></div>
-          <div class="desc">저축은행 총자산 · 자산운용 AUM · 벤처투자 AUM 합산 기준</div>
+          <div style="font-size:46px;font-weight:900;letter-spacing:-0.02em;line-height:1.1;">1.4조<span style="font-size:20px;color:var(--gold);"> 원+</span></div>
+          <div style="font-size:14px;color:var(--on-dark-soft);">저축은행·자산운용·벤처투자 금융 3사 합산 (2025.06 기준)</div>
         </div>
       </div>
-      <div class="hero-card small">
-        <div class="k">계열사</div>
-        <div class="v">3<small> 개사</small></div>
+      <div style="position:absolute;right:0;bottom:0;width:230px;background:#fff;border-radius:20px;box-shadow:0 18px 40px rgba(15,32,56,.14);padding:22px 24px;">
+        <div style="font-size:12.5px;color:var(--ink-soft);font-weight:700;">금융 계열사</div>
+        <div style="font-size:26px;font-weight:900;color:var(--green-brand);letter-spacing:-0.02em;">3<small style="font-size:14px;color:var(--green-accent);"> 개사</small></div>
       </div>
-      <div class="hero-badge">SINCE<br>1971</div>
+      <div style="position:absolute;top:14px;right:8px;width:66px;height:66px;border-radius:50%;background:var(--gold);color:#fff;display:grid;place-items:center;font-weight:900;font-size:12px;text-align:center;line-height:1.2;box-shadow:0 8px 18px rgba(203,162,88,.4);">50년+<br>업력</div>
     </div>
   </div>
 </section>
@@ -432,58 +134,64 @@ section{ scroll-margin-top:100px; }
 <!-- ===================== 지표 밴드 ===================== -->
 <section class="stats">
   <div class="wrap">
-    <div class="stat reveal"><div class="n">1971</div><div class="t">그룹 금융업 시작</div></div>
     <div class="stat reveal"><div class="n">3<small>개사</small></div><div class="t">금융 계열사</div></div>
     <div class="stat reveal"><div class="n">1.4<small>조 원</small></div><div class="t">저축은행 총자산</div></div>
-    <div class="stat reveal"><div class="n">9,700<small>억 원+</small></div><div class="t">자산운용·투자 AUM</div></div>
+    <div class="stat reveal"><div class="n">4,529<small>억 원</small></div><div class="t">자산운용 AUM</div></div>
+    <div class="stat reveal"><div class="n">2,455<small>억 원</small></div><div class="t">벤처투자 AUM</div></div>
   </div>
 </section>
 
-<!-- ===================== 그룹 소개 ===================== -->
-<section class="section tint" id="about">
+<!-- ===================== 그룹 소개 요약 ===================== -->
+<section class="section tint">
   <div class="wrap">
     <div class="section-head reveal">
       <div class="kicker">About Pureun Holdings</div>
       <h2>하나의 금융, 세 개의 전문성</h2>
       <p>
-        푸른홀딩스는 개인 고객의 예금·대출을 책임지는 <b>저축은행</b>,
-        기관·전문투자자의 자산을 운용하는 <b>자산운용사</b>,
-        그리고 미래 기술 기업에 투자하는 <b>벤처투자사</b>를 하나로 잇습니다.
+        푸른홀딩스는 개인 고객의 예금·대출을 책임지는 <b>저축은행</b>, 기관·전문투자자의 자산을 운용하는 <b>자산운용사</b>,
+        그리고 미래 기술 기업에 투자하는 <b>벤처투자사</b>를 하나로 잇는 금융지주회사입니다.
         각 계열사는 독립된 전문성을 지키면서도, 그룹의 일관된 원칙 아래 고객의 자산을 함께 지켜갑니다.
       </p>
+    </div>
+    <div style="text-align:center;" class="reveal">
+      <a class="btn btn-outline" href="about.html">홀딩스 소개 자세히 보기</a>
     </div>
   </div>
 </section>
 
 <!-- ===================== 핵심가치 ===================== -->
-<section class="section" id="values">
+<section class="section">
   <div class="wrap">
     <div class="section-head reveal">
       <div class="kicker">Our Values</div>
-      <h2>우리가 지키는 세 가지 원칙</h2>
+      <h2>인화 · 성실 · 창의</h2>
+      <p>푸른그룹이 반세기 넘게 지켜온 세 가지 가치입니다.</p>
     </div>
     <div class="values">
       <div class="value-card reveal">
-        <div class="ic">🛡️</div>
-        <h3>신뢰 (Trust)</h3>
-        <p>고객이 맡긴 자산을 가장 먼저 생각합니다. 반세기 넘게 이어온 건전한 경영과 투명한 원칙이 우리의 기본입니다.</p>
+        <div class="ic">🤝</div>
+        <div class="h-en">Harmony</div>
+        <h3>인화 (人和)</h3>
+        <p>사람과 사람 사이의 신뢰를 가장 먼저 생각합니다. 고객·직원·주주가 함께 성장하는 금융을 지향합니다.</p>
       </div>
       <div class="value-card reveal">
-        <div class="ic">🎯</div>
-        <h3>전문성 (Expertise)</h3>
-        <p>은행·운용·투자 각 분야에서 검증된 전문가들이 시장을 깊이 읽고, 고객에게 맞는 해법을 설계합니다.</p>
+        <div class="ic">🛡️</div>
+        <div class="h-en">Integrity</div>
+        <h3>성실 (誠實)</h3>
+        <p>맡겨주신 자산을 지키는 일에 원칙을 지킵니다. 건전한 경영과 투명한 관리가 우리의 기본입니다.</p>
       </div>
       <div class="value-card reveal">
         <div class="ic">🌱</div>
-        <h3>혁신 (Innovation)</h3>
-        <p>부동산 대출펀드부터 로봇·콘텐츠·항공우주까지, 다음 시대의 성장에 한발 앞서 투자합니다.</p>
+        <div class="h-en">Creativity</div>
+        <h3>창의 (創意)</h3>
+        <p>부동산 대출펀드부터 로봇·콘텐츠·2차전지까지, 다음 시대의 성장에 한발 앞서 투자합니다.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- ===================== 계열사 ===================== -->
-<section class="section tint" id="affiliates">
+<!-- ===================== 계열사 미리보기 ===================== -->
+<section class="section tint">
   <div class="wrap">
     <div class="section-head reveal">
       <div class="kicker">Our Affiliates</div>
@@ -492,7 +200,6 @@ section{ scroll-margin-top:100px; }
     </div>
 
     <div class="affiliates">
-      <!-- 1. 푸른저축은행 -->
       <div class="aff reveal">
         <div class="top bank">
           <div class="tag">SAVINGS BANK · 저축은행</div>
@@ -500,18 +207,15 @@ section{ scroll-margin-top:100px; }
           <div class="en">Pureun Savings Bank</div>
         </div>
         <div class="body">
-          <p>1971년 설립된 국내 저축은행 중 유일한 상장사. 예금·대출과 전자금융 서비스로 개인 고객의 일상 금융을 든든하게 지원합니다.</p>
+          <p>국내 저축은행 중 유일한 코스닥 상장사. 50여 년의 업력으로 개인 고객의 일상 금융을 든든하게 지원합니다.</p>
           <ul class="facts">
-            <li><span class="k">설립</span><b>1971년</b></li>
-            <li><span class="k">총자산</span><b>약 1.4조 원</b></li>
-            <li><span class="k">특징</span><b>국내 유일 상장 저축은행</b></li>
-            <li><span class="k">주요 사업</span><b>예·적금 · 대출 · 전자금융</b></li>
+            <li><span class="k">총자산</span><b>약 1조 4,062억 원</b></li>
+            <li><span class="k">특징</span><b>업계 유일 상장 저축은행</b></li>
           </ul>
-          <a class="btn btn-outline" href="#contact">자세히 문의</a>
+          <a class="btn btn-outline" href="affiliates.html#bank">자세히 보기</a>
         </div>
       </div>
 
-      <!-- 2. 푸른파트너스자산운용 -->
       <div class="aff reveal">
         <div class="top asset">
           <div class="tag">ASSET MANAGEMENT · 자산운용</div>
@@ -519,18 +223,15 @@ section{ scroll-margin-top:100px; }
           <div class="en">Pureun Partners AM</div>
         </div>
         <div class="body">
-          <p>2015년 설립. 업계 최초로 부동산 사모대출펀드(PDF)를 선보인 하우스로, PE·인프라까지 운용 자산을 다각화하고 있습니다.</p>
+          <p>2015년 설립. 업계 최초로 부동산 사모대출펀드(PDF)를 선보인 하우스로, PE·NPL까지 운용자산을 다각화합니다.</p>
           <ul class="facts">
-            <li><span class="k">설립</span><b>2015년</b></li>
-            <li><span class="k">AUM</span><b>약 8,000억 원</b></li>
+            <li><span class="k">AUM</span><b>약 4,529억 원</b></li>
             <li><span class="k">강점</span><b>부동산 PDF 업계 최초</b></li>
-            <li><span class="k">주요 사업</span><b>PDF · PE · 인프라</b></li>
           </ul>
-          <a class="btn btn-outline" href="#contact">자세히 문의</a>
+          <a class="btn btn-outline" href="affiliates.html#am">자세히 보기</a>
         </div>
       </div>
 
-      <!-- 3. 푸른인베스트먼트 -->
       <div class="aff reveal">
         <div class="top vc">
           <div class="tag">VENTURE CAPITAL · 벤처투자</div>
@@ -538,14 +239,12 @@ section{ scroll-margin-top:100px; }
           <div class="en">Pureun Investment</div>
         </div>
         <div class="body">
-          <p>2021년 설립된 신기술사업금융회사(VC). 로봇·콘텐츠·항공우주 등 미래 산업의 성장 기업에 공격적으로 투자합니다.</p>
+          <p>2021년 물적분할로 출범한 신기술사업금융회사(VC). 로봇·콘텐츠·2차전지 등 미래 산업에 투자합니다.</p>
           <ul class="facts">
-            <li><span class="k">설립</span><b>2021년</b></li>
-            <li><span class="k">AUM</span><b>1,700억 원+</b></li>
+            <li><span class="k">AUM</span><b>약 2,455억 원</b></li>
             <li><span class="k">유형</span><b>신기술사업금융(VC)</b></li>
-            <li><span class="k">투자 분야</span><b>로봇 · 콘텐츠 · 항공우주</b></li>
           </ul>
-          <a class="btn btn-outline" href="#contact">자세히 문의</a>
+          <a class="btn btn-outline" href="affiliates.html#vc">자세히 보기</a>
         </div>
       </div>
     </div>
@@ -553,7 +252,7 @@ section{ scroll-margin-top:100px; }
 </section>
 
 <!-- ===================== 비전 밴드 ===================== -->
-<section class="band" id="vision">
+<section class="band">
   <div class="wrap">
     <div class="reveal">
       <div class="kicker">Our Vision</div>
@@ -563,8 +262,8 @@ section{ scroll-margin-top:100px; }
         보수적으로 지키되 과감하게 성장하는 균형 — 그것이 우리가 생각하는 좋은 금융입니다.
       </p>
       <div class="actions">
-        <a class="btn btn-on-dark-fill" href="#contact">파트너십 문의</a>
-        <a class="btn btn-on-dark-line" href="#affiliates">계열사 보기</a>
+        <a class="btn btn-on-dark-fill" href="contact.html">파트너십 문의</a>
+        <a class="btn btn-on-dark-line" href="ir.html">IR 살펴보기</a>
       </div>
     </div>
     <div class="band-quote reveal">
@@ -575,51 +274,8 @@ section{ scroll-margin-top:100px; }
   </div>
 </section>
 
-<!-- ===================== 문의 ===================== -->
-<section class="section" id="contact">
-  <div class="wrap contact">
-    <div class="contact-info reveal">
-      <h2>무엇이든 문의하세요</h2>
-      <p>예금·대출, 자산운용, 투자 파트너십 등 궁금한 점을 남겨주시면 담당 부서가 안내해 드립니다.</p>
-      <div class="row"><div class="ic">✉️</div><div><div class="k">EMAIL</div><div class="v">kmr@prpt.co.kr</div></div></div>
-      <div class="row"><div class="ic">🏢</div><div><div class="k">OFFICE</div><div class="v">서울특별시 서초구 강남대로 581</div></div></div>
-      <div class="row"><div class="ic">🕘</div><div><div class="k">HOURS</div><div class="v">평일 09:00 – 18:00 (주말·공휴일 휴무)</div></div></div>
-    </div>
-
-    <!-- 문의 폼: 지금은 화면 안내만 (3~4주차에 DB/AI 연동 예정) -->
-    <form class="form-card reveal" id="contactForm" novalidate>
-      <div class="form-row">
-        <div class="field">
-          <label for="name">이름</label>
-          <input type="text" id="name" name="name" placeholder="홍길동" required />
-        </div>
-        <div class="field">
-          <label for="email">이메일</label>
-          <input type="email" id="email" name="email" placeholder="you@example.com" required />
-        </div>
-      </div>
-      <div class="field">
-        <label for="topic">문의 분야</label>
-        <select id="topic" name="topic">
-          <option>저축은행 (예금·대출)</option>
-          <option>자산운용 (펀드·PDF)</option>
-          <option>벤처투자 파트너십</option>
-          <option>기타 / 그룹 문의</option>
-        </select>
-      </div>
-      <div class="field">
-        <label for="message">문의 내용</label>
-        <textarea id="message" name="message" placeholder="문의하실 내용을 남겨주세요." required></textarea>
-      </div>
-      <button type="submit" class="btn btn-primary" style="width:100%;">문의 보내기</button>
-      <p class="form-note">* 현재는 시범 단계로, 접수 확인 메시지만 표시됩니다. (온라인 접수 기능은 추후 오픈 예정)</p>
-      <div class="form-msg" id="formMsg">✅ 문의가 정상적으로 접수되었습니다. 빠른 시일 내에 답변드리겠습니다.</div>
-    </form>
-  </div>
-</section>
-
 <!-- ===================== 푸터 ===================== -->
-<footer class="footer">
+<footer class="footer" id="footer">
   <div class="wrap">
     <div class="grid">
       <div>
@@ -627,93 +283,54 @@ section{ scroll-margin-top:100px; }
           <span class="mark">푸</span>
           <span class="name">푸른홀딩스<small style="color:var(--on-dark-soft)">PUREUN HOLDINGS</small></span>
         </div>
-        <p class="about">저축은행 · 자산운용 · 벤처투자를 아우르는 금융 지주회사. 신뢰받는 금융의 내일을 설계합니다.</p>
+        <p class="about">저축은행 · 자산운용 · 벤처투자를 아우르는 금융지주회사. 신뢰받는 금융의 내일을 설계합니다.</p>
       </div>
       <div>
-        <h4>그룹</h4>
+        <h4>홀딩스</h4>
         <ul>
-          <li><a href="#about">그룹 소개</a></li>
-          <li><a href="#values">경영 철학</a></li>
-          <li><a href="#vision">비전</a></li>
-          <li><a href="#contact">문의하기</a></li>
+          <li><a href="about.html#ceo">CEO 인사말</a></li>
+          <li><a href="about.html#overview">그룹 개요</a></li>
+          <li><a href="about.html#governance">지배구조</a></li>
+          <li><a href="about.html#history">연혁</a></li>
         </ul>
       </div>
       <div>
-        <h4>계열사</h4>
+        <h4>계열사 · IR</h4>
         <ul>
-          <li><a href="#affiliates">푸른저축은행</a></li>
-          <li><a href="#affiliates">푸른파트너스자산운용</a></li>
-          <li><a href="#affiliates">푸른인베스트먼트</a></li>
+          <li><a href="affiliates.html#bank">푸른저축은행</a></li>
+          <li><a href="affiliates.html#am">푸른파트너스자산운용</a></li>
+          <li><a href="affiliates.html#vc">푸른인베스트먼트</a></li>
+          <li><a href="ir.html">재무·운용실적</a></li>
         </ul>
       </div>
       <div>
         <h4>고객지원</h4>
         <ul>
-          <li><a href="#contact">고객 문의</a></li>
-          <li><a href="#" onclick="return false;">인재 채용</a></li>
-          <li><a href="#" onclick="return false;">공지사항</a></li>
+          <li><a href="pr.html">홍보센터</a></li>
+          <li><a href="esg.html">ESG·윤리경영</a></li>
+          <li><a href="contact.html">고객 문의</a></li>
+          <li><a href="contact.html#recruit">인재 채용</a></li>
         </ul>
       </div>
     </div>
     <div class="bottom">
       <small>© 2026 PUREUN HOLDINGS. All rights reserved.</small>
-      <small>서울특별시 서초구 강남대로 581 · kmr@prpt.co.kr</small>
+      <small>서울특별시 서초구 강남대로 581 푸른빌딩 · kmr@prpt.co.kr</small>
     </div>
     <p class="disclaimer">
-      본 웹사이트는 푸른홀딩스 및 계열사(푸른저축은행·푸른파트너스자산운용·푸른인베스트먼트)의 소개를 위한 대표 홈페이지입니다.
-      게시된 수치는 공개 정보를 바탕으로 한 참고용이며, 실제 투자 권유나 금융상품 계약을 위한 자료가 아닙니다.
+      본 웹사이트는 푸른홀딩스 및 금융 계열사(푸른저축은행·푸른파트너스자산운용·푸른인베스트먼트)의 소개를 위한 대표 홈페이지입니다.
+      게시된 수치는 각 사의 공개 자료를 바탕으로 한 참고용이며, 기준일에 따라 달라질 수 있습니다. 실제 투자 권유나 금융상품 계약을 위한 자료가 아닙니다.
       금융상품 가입 및 투자 결정 전에는 반드시 각 계열사의 공식 안내와 설명을 확인하시기 바랍니다.
     </p>
   </div>
 </footer>
 
-<!-- ===================== 플로팅 문의 버튼 ===================== -->
-<a class="float-cta" href="#contact" aria-label="문의하기">
+<a class="float-cta" href="contact.html" aria-label="문의하기">
   <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
     <path d="M21 15a2 2 0 0 1-2 2H7l-4 4V5a2 2 0 0 1 2-2h14a2 2 0 0 1 2 2z"/>
   </svg>
 </a>
 
-<!-- ===================== 자바스크립트 ===================== -->
-<script>
-// 1) 스크롤 시 내비게이션 그림자
-const nav = document.getElementById('nav');
-window.addEventListener('scroll', () => {
-  nav.classList.toggle('scrolled', window.scrollY > 10);
-});
-
-// 2) 모바일 햄버거 메뉴 열고 닫기
-const hamburger = document.getElementById('hamburger');
-const mobileMenu = document.getElementById('mobileMenu');
-hamburger.addEventListener('click', () => {
-  hamburger.classList.toggle('open');
-  mobileMenu.classList.toggle('open');
-});
-// 모바일 메뉴 링크 누르면 메뉴 닫기
-mobileMenu.querySelectorAll('a').forEach(a => {
-  a.addEventListener('click', () => {
-    hamburger.classList.remove('open');
-    mobileMenu.classList.remove('open');
-  });
-});
-
-// 3) 스크롤 등장 애니메이션
-const io = new IntersectionObserver((entries) => {
-  entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('in'); });
-}, { threshold: 0.12 });
-document.querySelectorAll('.reveal').forEach(el => io.observe(el));
-
-// 4) 문의 폼 (지금은 화면 안내만 — 추후 DB/AI 연동 예정)
-const form = document.getElementById('contactForm');
-const formMsg = document.getElementById('formMsg');
-form.addEventListener('submit', (e) => {
-  e.preventDefault();
-  if (!form.checkValidity()) { form.reportValidity(); return; }
-  formMsg.classList.add('show');
-  form.querySelectorAll('input, textarea').forEach(i => i.value = '');
-  formMsg.scrollIntoView({ behavior: 'smooth', block: 'center' });
-});
-</script>
-
+<script src="assets/main.js"></script>
 </body>
 </html>
