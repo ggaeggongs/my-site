@@ -1,3 +1,5 @@
+@import url("https://cdn.jsdelivr.net/gh/orioncactus/pretendard/dist/web/static/pretendard.css");
+
 /* =========================================================
    푸른홀딩스 공용 디자인 시스템
    - 모든 페이지(index / about / affiliates / ir / pr / esg / contact)가
@@ -56,7 +58,7 @@
 *{ box-sizing:border-box; margin:0; padding:0; }
 html{ scroll-behavior:smooth; }
 body{
-  font-family:"Noto Sans KR","Inter","Helvetica Neue",Arial,sans-serif;
+  font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
   background:var(--canvas);
   color:var(--ink);
   line-height:1.6;
@@ -84,6 +86,10 @@ section{ scroll-margin-top:150px; }
 .btn-outline:hover{ background:rgba(0,117,74,.06); }
 .btn-dark{ background:var(--navy); color:#fff; border-color:var(--navy); font-size:14px; padding:10px 22px; }
 .btn-dark:hover{ background:#152a48; }
+.btn-external{gap:9px;color:#33444F;border-color:#CAD5DB;background:#fff;}
+.btn-external:hover{color:#075987;border-color:#7BA5BF;background:#F6F9FB;}
+.btn-external::after{content:"↗";font-family:Arial,sans-serif;font-size:14px;line-height:1;}
+.btn-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
 .btn-on-dark-fill{ background:#fff; color:var(--green-accent); border-color:#fff; }
 .btn-on-dark-fill:hover{ background:#eef2f0; }
 .btn-on-dark-line{ background:transparent; color:#fff; border-color:rgba(255,255,255,.6); }
@@ -118,6 +124,175 @@ section{ scroll-margin-top:150px; }
 .brand .name{ font-size:20px; color:var(--navy); letter-spacing:-0.02em; line-height:1; }
 .brand .name small{ display:block; font-size:9.5px; letter-spacing:.22em; color:var(--ink-soft);
   font-weight:600; margin-top:3px; font-family:"Inter",sans-serif; }
+
+/* =========================================================
+   PUREUN CORPORATE DESIGN 2026
+   CI 원본의 Blue #0068B7 / Green #48B848를 중심으로 정돈한
+   금융지주사형 디자인 시스템. 기존 컴포넌트 위에 일관되게 적용한다.
+   ========================================================= */
+:root{
+  --green-brand:#327B50;
+  --green-accent:#286842;
+  --green-house:#063D66;
+  --green-uplift:#0C527F;
+  --green-light:#EFF5F1;
+  --navy:#082F49;
+  --navy-soft:#124E78;
+  --gold:#48B848;
+  --canvas:#F6F8F9;
+  --ceramic:#E3E9ED;
+  --ink:#16232D;
+  --ink-soft:#64727D;
+  --radius-card:4px;
+  --shadow-card:0 1px 0 rgba(8,47,73,.08);
+  --shadow-nav:0 8px 28px rgba(8,47,73,.08);
+  --maxw:1240px;
+}
+
+body{background:#fff;color:var(--ink);letter-spacing:-.018em;}
+.wrap{padding-left:32px;padding-right:32px;}
+.topbar{display:none;}
+.nav{background:rgba(255,255,255,.97);border-bottom:1px solid #E5EAED;backdrop-filter:blur(14px);}
+.nav .wrap{height:86px;gap:52px;}
+.nav.scrolled{box-shadow:0 8px 30px rgba(8,47,73,.06);}
+.brand{gap:13px;min-width:max-content;}
+.brand .mark{
+  width:42px;height:42px;border-radius:0;background:transparent url("pureun-symbol.svg") center/contain no-repeat;
+  color:transparent;font-size:0;overflow:hidden;box-shadow:none;
+}
+.brand .name{font-size:21px;font-weight:800;color:#171B1E;letter-spacing:-.045em;line-height:1.05;}
+.brand .name small{font-size:9px;letter-spacing:.18em;color:#70808B;font-weight:700;margin-top:6px;}
+.nav-links{gap:12px;margin-left:auto;}
+.nav-item>a{height:86px;padding:0 13px;border-radius:0;font-size:15px;color:#29343C;}
+.nav-item>a:hover{background:transparent;color:#0068B7;}
+.nav-item.active>a{color:#0068B7;box-shadow:inset 0 -2px #0068B7;}
+.dropdown{top:78px;border-radius:2px;border:1px solid #E1E7EA;padding:10px;box-shadow:0 18px 45px rgba(8,47,73,.12);}
+.dropdown a{border-radius:2px;padding:11px 14px;}
+.dropdown a:hover{background:#F1F6F9;color:#0068B7;}
+.nav-cta{margin-left:8px;}
+.btn{border-radius:2px;padding:13px 24px;font-size:14px;letter-spacing:-.01em;}
+.btn-primary{background:#0068B7;border-color:#0068B7;}
+.btn-primary:hover{background:#00589B;border-color:#00589B;}
+.btn-outline{color:#0068B7;border-color:#AFC7D8;background:#fff;}
+.btn-outline:hover{background:#F4F8FA;border-color:#0068B7;}
+.btn-dark{background:#082F49;border-color:#082F49;border-radius:2px;}
+
+/* 메인 첫 화면: 장식보다 메시지와 여백에 집중 */
+.hero{background:linear-gradient(105deg,#F7FAFC 0%,#FFFFFF 60%,#F1F7FA 100%);border-bottom:1px solid #E4EAEE;}
+.hero>.wrap{min-height:650px;padding-top:96px!important;padding-bottom:96px!important;gap:72px!important;}
+.hero h1{font-weight:700!important;color:#102B3C!important;letter-spacing:-.052em!important;line-height:1.13!important;}
+.hero h1 span{color:#0068B7!important;}
+.hero p{color:#52616C!important;font-weight:400;}
+.hero .reveal:first-child>span{background:transparent!important;color:#0068B7!important;padding:0!important;border-radius:0!important;letter-spacing:.14em!important;text-transform:uppercase;}
+.hero .reveal:first-child>span::before{content:"";width:28px;height:2px;background:#397B58;display:inline-block;}
+.hero .reveal:nth-child(2)>div:first-child{background:linear-gradient(145deg,#083A5D,#0068B7)!important;border-radius:4px!important;box-shadow:none!important;padding:38px!important;}
+.hero .reveal:nth-child(2)>div:nth-child(2){border-radius:2px!important;box-shadow:0 14px 40px rgba(8,47,73,.12)!important;border:1px solid #E2E9ED;}
+.hero .reveal:nth-child(2)>div:nth-child(3){display:none!important;}
+
+.stats{border:0;background:#082F49;color:#fff;}
+.stats .wrap{padding-top:46px;padding-bottom:46px;}
+.stat .n{color:#fff;font-size:38px;font-weight:700;}
+.stat .n small{color:#9AB7A4;}
+.stat .t{color:rgba(255,255,255,.68);}
+.stat+.stat{border-color:rgba(255,255,255,.16);}
+
+.section{padding:112px 0;}
+.section.tint{background:#F6F8F9;}
+.section.mint{background:#F1F7F3;}
+.section-head{margin-bottom:56px;}
+.section-head .kicker{color:#0068B7;font-size:12px;letter-spacing:.2em;margin-bottom:18px;}
+.section-head h2{font-size:clamp(30px,3.4vw,44px);font-weight:700;color:#102B3C;letter-spacing:-.045em;margin-bottom:20px;}
+.section-head p{color:#687680;font-size:16px;line-height:1.9;}
+.values,.affiliates{gap:1px;background:#DDE5E9;border:1px solid #DDE5E9;}
+.value-card,.aff{border:0!important;border-radius:0!important;box-shadow:none!important;background:#fff;}
+.value-card{padding:42px 36px;}
+.value-card:hover,.aff:hover{transform:none!important;box-shadow:none!important;}
+.value-card .ic{display:none;}
+.value-card h3{color:#102B3C;font-size:22px;}
+.value-card .h-en{color:#4D765E;margin-bottom:18px;}
+.aff .top{border-radius:0!important;background:#0C4266!important;padding:32px!important;}
+.aff .body{padding:34px 30px!important;}
+.aff .tag{color:#B0C7B8!important;}
+
+.band{background:#082F49!important;}
+.band::before{opacity:.035!important;}
+.band .kicker{color:#A9C1B2!important;}
+.band-quote{border-radius:2px!important;background:rgba(255,255,255,.06)!important;border:1px solid rgba(255,255,255,.12);}
+.page-hero{background:linear-gradient(120deg,#082F49,#075987);}
+.page-hero::after{background:transparent;border:1px solid rgba(255,255,255,.08);width:420px;height:420px;}
+.page-hero .en{color:#B0C7B8;}
+.subnav{top:86px;}
+.subnav a.active{color:#0068B7;border-bottom-color:#48B848;}
+.footer{background:#061F31!important;}
+.footer .brand .name{color:#fff;}
+.float-cta{background:#0068B7!important;border-radius:50%!important;}
+
+@media(max-width:960px){
+  .wrap{padding-left:22px;padding-right:22px;}
+  .nav .wrap{height:72px;}
+  .brand .mark{width:36px;height:36px;}
+  .brand .name{font-size:18px;}
+  .nav-cta .btn{display:none;}
+  .mobile-menu{top:72px;}
+  .hero>.wrap{min-height:auto;padding-top:72px!important;padding-bottom:72px!important;grid-template-columns:1fr!important;}
+  .hero .reveal:nth-child(2){height:330px!important;}
+  .section{padding:80px 0;}
+  .values,.affiliates{gap:16px;background:transparent;border:0;}
+  .value-card,.aff{border:1px solid #DDE5E9!important;}
+  .subnav{top:72px;}
+}
+
+@media(max-width:640px){
+  .brand .name small{display:none;}
+  .hero h1{font-size:38px!important;}
+  .stats .wrap{grid-template-columns:repeat(2,1fr);}
+  .stat:nth-child(3){border-left:0;}
+}
+
+/* 2026 typography & color final pass — 기존 컴포넌트보다 우선 적용 */
+body,
+button,
+input,
+select,
+textarea,
+.btn{
+  font-family:"Pretendard","Noto Sans KR","Apple SD Gothic Neo","Malgun Gothic",sans-serif;
+}
+
+.section-head .kicker,
+.page-hero .en,
+.band .kicker,
+.news .date{
+  color:#4D765E;
+}
+
+.value-card h3,
+.aff .facts li b,
+.org-child .own b,
+.tl-year,
+table.data td b,
+.ceo-msg p .em{
+  color:#286842;
+}
+
+.aff .tag{color:#B0C7B8;}
+.stat .n small{color:#9AB7A4;}
+.subnav a.active{color:#075987;border-bottom-color:#397B58;}
+.tl-list li::before,
+.card ul li::before{color:#397B58;}
+.form-control:focus{border-color:#397B58;box-shadow:0 0 0 3px rgba(57,123,88,.1);}
+.float-cta{background:#075987;}
+
+.btn-external{
+  color:#33444F;
+  border-color:#CAD5DB;
+  background:#fff;
+}
+.btn-external:hover{
+  color:#075987;
+  border-color:#7BA5BF;
+  background:#F6F9FB;
+}
 
 /* 데스크톱 메뉴 */
 .nav-links{ display:flex; gap:6px; margin-left:8px; height:100%; }
