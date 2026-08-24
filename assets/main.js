@@ -58,6 +58,21 @@ if (subnavLinks.length) {
   });
 }
 
+// 4-1) 현재 페이지에 해당하는 상단 메뉴 강조 (data-nav 기준)
+(function () {
+  var path = (location.pathname.split('/').pop() || 'index.html').toLowerCase();
+  var map = {
+    'about.html': 'about', 'affiliates.html': 'about',
+    'governance.html': 'governance',
+    'ir.html': 'ir', 'pr.html': 'pr', 'esg.html': 'esg', 'recruit.html': 'recruit'
+  };
+  var key = map[path];
+  if (key) {
+    var item = document.querySelector('.nav-item[data-nav="' + key + '"]');
+    if (item) item.classList.add('active');
+  }
+})();
+
 // 5) 문의 폼 (현재는 화면 안내만 — 추후 DB/AI 연동 예정)
 var form = document.getElementById('contactForm');
 var formMsg = document.getElementById('formMsg');
