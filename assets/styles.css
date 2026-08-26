@@ -88,7 +88,7 @@ section{ scroll-margin-top:150px; }
 .btn-dark:hover{ background:#152a48; }
 .btn-external{gap:9px;color:#33444F;border-color:#CAD5DB;background:#fff;}
 .btn-external:hover{color:#075987;border-color:#7BA5BF;background:#F6F9FB;}
-.btn-external::after{content:"↗";font-family:Arial,sans-serif;font-size:14px;line-height:1;}
+.btn-external::after{content:"↗";font-family:inherit;font-size:14px;line-height:1;}
 .btn-row{display:flex;align-items:center;gap:10px;flex-wrap:wrap;}
 .btn-on-dark-fill{ background:#fff; color:var(--green-accent); border-color:#fff; }
 .btn-on-dark-fill:hover{ background:#eef2f0; }
@@ -524,7 +524,7 @@ table.data .name{ font-weight:700; color:var(--navy); }
 .band .actions{ display:flex; gap:14px; margin-top:12px; flex-wrap:wrap; }
 .band.single .actions{ justify-content:center; }
 .band-quote{ background:var(--green-uplift); border-radius:18px; padding:40px 38px; border:1px solid rgba(255,255,255,.08); }
-.band-quote .mark{ font-size:56px; line-height:.6; color:var(--gold); font-family:Georgia,serif; }
+.band-quote .mark{ font-size:56px; line-height:.6; color:var(--gold); font-family:inherit; }
 .band-quote blockquote{ font-size:21px; line-height:1.6; font-weight:500; margin:14px 0 22px; letter-spacing:-0.01em; }
 .band-quote .who{ font-size:14px; color:var(--on-dark-soft); }
 .band-quote .who b{ color:#fff; font-weight:700; }
