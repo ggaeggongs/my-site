@@ -575,7 +575,7 @@ table.data .name{ font-weight:700; color:var(--navy); }
 .inq-empty{ font-size:14px; color:var(--ink-soft); text-align:center; padding:28px 0; }
 
 /* 푸른 마스코트 — 문의 제목 옆 작은 포인트 */
-.contact-head{ display:flex; align-items:center; gap:14px; margin-bottom:6px; }
+.contact-head{ display:flex; flex-direction:column; align-items:flex-start; gap:6px; margin-bottom:12px; }
 .contact-head h2{ margin-bottom:0; }
 .mascot-mini{ width:84px; height:auto; flex-shrink:0;
   filter:drop-shadow(0 8px 12px rgba(8,47,73,.16)); }
