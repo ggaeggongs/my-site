@@ -270,8 +270,7 @@ textarea,
 .aff .facts li b,
 .org-child .own b,
 .tl-year,
-table.data td b,
-.ceo-msg p .em{
+table.data td b{
   color:#286842;
 }
 
@@ -493,21 +492,32 @@ table.data .name{ font-weight:700; color:var(--navy); }
 /* =========================================================
    CEO 인사말
    ========================================================= */
-.ceo{ display:grid; grid-template-columns:.85fr 1.15fr; gap:48px; align-items:start; }
-.ceo-portrait{ background:linear-gradient(135deg,var(--navy),var(--green-house)); border-radius:18px;
-  padding:44px 36px; color:#fff; text-align:center; box-shadow:var(--shadow-card); }
-.ceo-portrait{ padding:26px 26px 30px; }
-.ceo-portrait .ceo-photo{ width:100%; border-radius:14px; margin:0 auto 22px; display:block;
-  box-shadow:0 12px 28px rgba(0,0,0,.28); background:#e7e2da; }
+.ceo{ display:grid; grid-template-columns:.82fr 1.18fr; gap:64px; align-items:center; }
+.ceo-portrait{
+  position:relative;
+  padding:0;
+  color:var(--ink);
+  text-align:left;
+}
+.ceo-portrait::before,.ceo-portrait::after{ content:none; }
+.ceo-portrait .ceo-photo{
+  width:100%;
+  height:auto;
+  margin:0;
+  display:block;
+  border-radius:20px;
+  box-shadow:0 22px 52px rgba(17,38,52,.14);
+  background:#e7e2da;
+}
 .ceo-portrait .avatar{ width:120px; height:120px; border-radius:50%; margin:0 auto 22px;
   background:rgba(255,255,255,.1); border:2px solid rgba(255,255,255,.25); display:grid; place-items:center;
   font-size:44px; font-weight:900; }
-.ceo-portrait .role{ font-size:13px; color:var(--gold); letter-spacing:.1em; font-weight:700; }
-.ceo-portrait .who{ font-size:26px; font-weight:900; margin-top:6px; letter-spacing:-0.02em; }
-.ceo-portrait .who small{ display:block; font-size:12px; color:var(--on-dark-soft); letter-spacing:.2em;
-  margin-top:8px; font-family:"Pretendard",sans-serif; font-weight:600; }
+.ceo-portrait .role{ margin:24px 0 0; font-size:12px; color:#557066; letter-spacing:.14em; font-weight:700; }
+.ceo-portrait .who{ margin:7px 0 0; font-size:27px; color:var(--navy); font-weight:800; letter-spacing:-0.025em; }
+.ceo-portrait .who small{ display:inline-block; margin:0 0 0 10px; font-size:10px; color:#7B8B94; letter-spacing:.13em;
+  font-family:"Pretendard",sans-serif; font-weight:600; vertical-align:middle; }
 .ceo-msg p{ font-size:16.5px; color:var(--ink); line-height:1.9; margin-bottom:18px; }
-.ceo-msg p .em{ color:var(--green-brand); font-weight:700; }
+.ceo-msg p .em{ color:#172B36; font-weight:800; }
 .ceo-msg .sign{ margin-top:26px; font-size:15px; color:var(--ink-soft); }
 .ceo-msg .sign b{ color:var(--navy); font-size:18px; font-weight:900; }
 
@@ -654,6 +664,7 @@ table.data .name{ font-weight:700; color:var(--navy); }
   .band .wrap{ grid-template-columns:1fr; gap:32px; }
   .contact-grid{ grid-template-columns:1fr; gap:32px; }
   .ceo{ grid-template-columns:1fr; gap:28px; }
+  .ceo-portrait{ max-width:520px; width:100%; margin:0 auto 8px; }
   .stats .wrap{ grid-template-columns:repeat(2,1fr); }
   .stat:nth-child(3){ border-left:none; }
   .footer .grid{ grid-template-columns:1fr 1fr; }
@@ -662,6 +673,10 @@ table.data .name{ font-weight:700; color:var(--navy); }
   .subnav{ top:74px; }
 }
 @media (max-width:520px){
+  .ceo-portrait .ceo-photo{ border-radius:16px; }
+  .ceo-portrait .role{ margin-top:20px; }
+  .ceo-portrait .who{ margin-top:6px; font-size:24px; }
+  .ceo-portrait .who small{ display:block; margin:7px 0 0; }
   .stats .wrap{ grid-template-columns:1fr 1fr; }
   .form-row{ grid-template-columns:1fr; }
   .org-row{ grid-template-columns:1fr; }

@@ -116,7 +116,8 @@ p,h1,h2,h3,h4,h5,h6,blockquote,li,td,th,label,.breadcrumb,.nav-item>a,.dropdown 
 .aff .top{border-radius:0!important;background:#0C4266!important;padding:32px!important;}
 .aff .body{padding:34px 30px!important;}
 .aff .tag{color:#B0C7B8!important;}
-.aff .facts li b,.org-child .own b,.tl-year,table.data td b,.ceo-msg p .em{color:#286842;}
+.aff .facts li b,.org-child .own b,.tl-year,table.data td b{color:#286842;}
+.ceo-msg p .em{color:#172B36;font-weight:800;}
 .tl-list li::before,.card ul li::before{color:#397B58;}
 
 .band{background:#082F49!important;}
