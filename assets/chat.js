@@ -5,7 +5,11 @@
    - 순수 JS, 의존성 없음. 배포된 사이트(Vercel)에서 동작.
    ========================================================= */
 (function () {
-  var API = "/api/ask";
+  // http(s)로 서비스 중이면 같은 도메인의 /api/ask,
+  // 로컬 파일(file://)·미리보기 등에서 열면 배포된 서버로 자동 연결(CORS 허용됨).
+  var API = (location.protocol === "http:" || location.protocol === "https:")
+    ? "/api/ask"
+    : "https://my-site-prpt.vercel.app/api/ask";
   var history = [];      // {role, content}
   var busy = false;
 
@@ -138,7 +142,7 @@
       })
       .catch(function () {
         typing.remove();
-        addMsg("bot", "연결에 실패했습니다. (AI 기능은 인터넷에 배포된 사이트에서 동작합니다.)");
+        addMsg("bot", "연결에 실패했습니다. 인터넷 연결을 확인한 뒤 잠시 후 다시 시도해 주세요.");
       })
       .then(function () { busy = false; });
   });
